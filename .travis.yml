@@ -1,9 +1,10 @@
 sudo: required
 services:
-  - docker
+- docker
 env:
-  - DEV_TAG=vetalxpro/docker-react-ci
+- DOCKER_COMPOSE_VERSION=1.4.2
+- DEV_TAG=vetalxpro/docker-react-ci
 before_install:
-  - docker build -t ${DEV_TAG} -f Dockerfile.dev .
+- docker build -t ${DEV_TAG} -f docker/web/Dockerfile.dev .
 script:
-  - docker run ${DEV_TAG} npm run test -- --coverage
+- docker run ${DEV_TAG} npm run test -- --coverage
