@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+env:
+  - DEV_TAG=vetalxpro/docker-react-ci
+before_install:
+  - docker build -t ${DEV_TAG} -f Dockerfile.dev .
+script:
+  - docker run ${DEV_TAG} npm run test -- --coverage
