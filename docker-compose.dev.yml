@@ -1,0 +1,21 @@
+version: '3'
+services:
+  web:
+    container_name: 'web'
+    build:
+      context: .
+      dockerfile: docker/web/Dockerfile.dev
+    volumes:
+    - .:/usr/app
+    ports:
+    - 80:3000
+  tests:
+    container_name: 'tests'
+    build:
+      context: .
+      dockerfile: docker/web/Dockerfile.dev
+    volumes:
+    - .:/usr/app
+    command: ["npm","test"]
+
+
