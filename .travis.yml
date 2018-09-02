@@ -1,12 +1,10 @@
 sudo: required
 services:
 - docker
-env:
-- IMAGE_TAG=vetalxpro/docker-react-ci
 before_install:
-- docker build -t ${IMAGE_TAG} .
+- docker build -t vetalxpro/docker-react-ci .
 script:
-- docker run ${IMAGE_TAG} npm run test -- --coverage
+- docker run vetalxpro/docker-react-ci npm run test -- --coverage
 
 deploy:
   provider: elasticbeanstalk
