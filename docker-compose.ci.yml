@@ -1,0 +1,10 @@
+version: '3'
+services:
+  tests:
+    container_name: 'tests'
+    build:
+      context: .
+      dockerfile: docker/web/Dockerfile.ci
+    volumes:
+    - ./node_modules:/usr/app/node_modules
+    - .:/usr/app
