@@ -4,7 +4,7 @@ services:
 before_install:
 - docker build -t vetalxpro/docker-react-ci .
 script:
-- docker run vetalxpro/docker-react-ci npm run test -- --coverage
+- docker run vetalxpro/docker-react-ci npm test -- --coverage
 
 deploy:
   provider: elasticbeanstalk
